@@ -1,0 +1,147 @@
+.header {  
+  color: #fbae17;
+  margin-bottom: 1.5rem;
+}
+
+.our-story {
+  .chat {
+    border: 8px solid #f3f5f9;
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+    background-color: #f3f5f9;
+  }
+
+  .device-background {
+    $device-screen-width: 14rem;
+    $device-screen-height: 25rem;
+    $device-background: darken(gray, 40%);
+    $device-backside-background: darken($device-background, 10%);
+    $gradient-angle: 10deg;
+    $device-screen-image: '/assets/images/match.jpg';
+   
+
+    .device-text {
+      @include span-columns(12 of 12);
+      @include media($desktop-up) {
+        @include span-columns(8 of 12);
+      }
+    }
+
+    .device {
+      display: none;
+      position: relative;
+
+      @include media($desktop-up) {
+        @include transform(
+          perspective(800px) 
+          translateX(0px) 
+          translateY(-100px) 
+          translateZ(50px) 
+          rotateX(0deg) 
+          rotateY(-20deg) 
+          rotateZ(-0deg)
+        );
+        
+        background: $device-background;
+        border-radius: 2rem;
+        
+        box-shadow: 
+          1px 0px lighten($device-backside-background, 20%), 
+          4px 0px lighten($device-backside-background, 2%),
+          7px 0px $device-backside-background,
+          10px 0px $device-backside-background,
+          13px 0px $device-backside-background;
+        
+        display: block;
+        float: right;
+        margin-top: 5rem;
+        margin-bottom: -12rem;
+        margin-right: 5rem;
+        padding: 5rem 0;
+        width: $device-screen-width + (2 * .4rem);
+        z-index: 99999;
+
+        .screen {
+          @include size($device-screen-width $device-screen-height);
+          background-image: url($device-screen-image);
+          background-size: cover;
+          border-radius: 0.2rem;
+          box-shadow: inset 0 1px 8px transparentize(black, 0.5);
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items {
+  @include clearfix;
+    
+  .grid-item {
+    outline: 3px solid #f3f5f9;;
+    float: left;
+    height: 14rem;
+    overflow: hidden;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    background-color: #fff;
+
+    @include media($desktop-up) {
+      @include grid-item-columns(4);
+    }
+  }
+
+  .grid-item h1 {
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .grid-item p {
+    color: #000;
+    line-height: 1.3em;
+    margin: auto;
+    
+    @include media($tablet-up) {
+      max-width: 70%;
+    }
+  }
+
+  .grid-item-big {
+    @include media($desktop-up) {
+      @include grid-item-columns(8);
+    }
+    
+    p {
+      @include media($tablet-up) {
+        max-width: 60%;
+      }  
+    }
+  }
+}
+
+.ring {
+  @include span-columns(12 of 12);
+  @include media($tablet-up) {
+    @include span-columns(4 of 12);
+  }
+}
+
+.proposal {
+  @include span-columns(12 of 12);
+  @include media($tablet-up) {
+    @include span-columns(8 of 12);
+  }
+}
+
+
+
+
+
+

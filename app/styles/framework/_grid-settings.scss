@@ -1,0 +1,22 @@
+@import "../../vendor/neat/app/assets/stylesheets/neat-helpers";
+
+
+//$visual-grid: true;
+// Neat Overrides
+// $column: 90px;
+// $gutter: 30px;
+$grid-columns: 12;
+$max-width: rem(1200);
+
+$mobile-breakpoint:  rem(768)  !default;
+$tablet-breakpoint: rem(1024) !default;
+$desktop-breakpoint:  rem(1200) !default;
+
+$tablet-up: new-breakpoint(min-width ($mobile-breakpoint + rem(1)), 12);
+$desktop-up: new-breakpoint(min-width ($tablet-breakpoint + rem(1)), 12);
+$xl-desktop-up: new-breakpoint(min-width ($desktop-breakpoint + rem(1)), 12);
+
+$mobile-only: new-breakpoint(min-width 0 max-width $mobile-breakpoint, 4); // use for QA only
+$tablet-only: new-breakpoint(min-width ($mobile-breakpoint + rem(1)) max-width $tablet-breakpoint, 12);
+$desktop-only: new-breakpoint(min-width ($tablet-breakpoint + rem(1)) max-width $desktop-breakpoint, 12);
+

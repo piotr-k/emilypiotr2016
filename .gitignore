@@ -1,0 +1,7 @@
+.DS_Store
+.grunt
+.sass-cache
+.tmp
+/app/vendor
+/dist
+/node_modules
